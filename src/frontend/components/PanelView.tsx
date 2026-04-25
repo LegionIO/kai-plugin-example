@@ -6,10 +6,6 @@ export function PanelView({ pluginState, pluginConfig }: PluginComponentProps<Pl
   const state = pluginState ?? { messageCount: 0 };
   const config: PluginConfig = pluginConfig ?? { greeting: 'Hello', enabled: true, showGreeting: true };
 
-  const openSettings = () => {
-    window.dispatchEvent(new CustomEvent('kai:open-settings', { detail: { plugin: 'example' } }));
-  };
-
   return (
     <div className="space-y-6 p-6 max-w-2xl mx-auto">
 
@@ -28,13 +24,6 @@ export function PanelView({ pluginState, pluginConfig }: PluginComponentProps<Pl
             {state.lastMessage ? ` — last: "${state.lastMessage}"` : ''}
           </p>
         )}
-
-        <button
-          onClick={openSettings}
-          className="rounded-lg border border-border/70 bg-card/80 px-3 py-1.5 text-xs text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-colors"
-        >
-          Configure greeting →
-        </button>
       </fieldset>
 
       <fieldset className="rounded-lg border p-3 space-y-2">
