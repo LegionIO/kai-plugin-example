@@ -1,62 +1,43 @@
 import React from 'react';
-import { usePluginConfig } from '../hooks.ts';
+import type { PluginComponentProps } from '../hooks.ts';
 import type { PluginConfig } from '../../shared/types.ts';
 
-/**
- * Settings panel component
- * Demonstrates how to read and update plugin configuration
- */
-
-export function ExampleSettings() {
-  const { config, updateConfig } = usePluginConfig<PluginConfig>();
+export function ExampleSettings({ pluginConfig, setPluginConfig }: PluginComponentProps<Record<string, unknown>, PluginConfig>) {
+  const config: PluginConfig = pluginConfig ?? { greeting: 'Hello', enabled: true, showGreeting: true };
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-lg font-semibold mb-4">Example Plugin Settings</h2>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-          Configure how the plugin behaves
-        </p>
-      </div>
+      <h3 className="text-sm font-semibold">Example Plugin</h3>
 
-      <div className="space-y-4">
+      <fieldset className="rounded-lg border p-3 space-y-3">
+        <legend className="text-xs font-semibold px-1">Greeting</legend>
+
+        <div className="flex items-start justify-between gap-3 rounded-md border p-3">
+          <div>
+            <span className="text-xs font-medium">Show greeting</span>
+            <p className="mt-0.5 text-[10px] text-muted-foreground">
+              Display the greeting message at the top of the plugin panel.
+            </p>
+          </div>
+          <input
+            type="checkbox"
+            checked={config.showGreeting}
+            onChange={(e) => setPluginConfig?.('showGreeting', e.target.checked)}
+            className="mt-0.5 h-4 w-4 rounded"
+          />
+        </div>
+
         <div>
-          <label className="block text-sm font-medium mb-2">
-            Greeting Message
-          </label>
+          <label className="text-[10px] text-muted-foreground block mb-0.5">Greeting message</label>
           <input
             type="text"
             value={config.greeting}
-            onChange={(e) => updateConfig('greeting', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter greeting"
+            onChange={(e) => setPluginConfig?.('greeting', e.target.value)}
+            placeholder="e.g. Hello"
+            className="w-full rounded-xl border border-border/70 bg-card/80 px-3 py-2 text-xs outline-none"
           />
-          <p className="text-xs text-gray-500 mt-1">
-            The greeting used when the tool is called
-          </p>
         </div>
-
-        <div>
-          <label className="flex items-center space-x-2 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={config.enabled}
-              onChange={(e) => updateConfig('enabled', e.target.checked)}
-              className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-            />
-            <span className="text-sm font-medium">Enable plugin</span>
-          </label>
-          <p className="text-xs text-gray-500 mt-1 ml-6">
-            When disabled, the plugin will not respond to tool calls
-          </p>
-        </div>
-      </div>
-
-      <div className="pt-4 border-t">
-        <p className="text-xs text-gray-500">
-          Configuration is saved automatically and synced across the plugin
-        </p>
-      </div>
+      </fieldset>
     </div>
   );
 }

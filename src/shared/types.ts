@@ -5,6 +5,7 @@
 export type PluginConfig = {
   greeting: string;
   enabled: boolean;
+  showGreeting: boolean;
 };
 
 export type PluginState = {

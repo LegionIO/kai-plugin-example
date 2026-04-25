@@ -31,10 +31,9 @@ kai-plugin-example/
 │   └── shared/            # Code shared between backend and frontend
 │       ├── types.ts       # TypeScript type definitions
 │       └── constants.ts   # Shared constants
-├── dist/                  # Build output (generated)
-│   ├── backend.js         # Bundled backend code
-│   └── frontend.js        # Frontend entry point
 ├── plugin.json            # Plugin manifest
+├── backend.js             # Build output (generated, gitignored)
+├── frontend.js            # Build output (generated, gitignored)
 ├── package.json           # Dependencies and scripts
 ├── tsconfig.json          # TypeScript configuration
 ├── esbuild.config.mjs     # Build configuration
@@ -101,32 +100,23 @@ npm install
 - **Frontend**: Edit components in `src/frontend/components/`
 - **Types**: Define shared types in `src/shared/types.ts`
 
-### 5. Build
+### 5. Build and Test Locally
+
+**Development Mode**
+
+```bash
+npm run dev
+```
+
+This builds your plugin to `~/.kai/plugins/{plugin-name}/` and watches for changes. Kai will automatically discover the plugin. Just restart Kai after changes to reload.
+
+**Production Build**
 
 ```bash
 npm run build
 ```
 
-This creates:
-- `dist/backend.js` - Bundled backend code
-- `dist/frontend.js` - Frontend entry point
-
-### 6. Test Locally
-
-Copy the entire plugin directory to Kai's plugins folder:
-
-```bash
-# macOS
-cp -r . ~/Library/Application\ Support/Kai/plugins/my-plugin/
-
-# Linux
-cp -r . ~/.config/Kai/plugins/my-plugin/
-
-# Windows
-cp -r . %APPDATA%\Kai\plugins\my-plugin\
-```
-
-Restart Kai to load your plugin.
+Builds to the plugin root directory (backend.js, frontend.js, plugin.json) for packaging and releases.
 
 ## Plugin Manifest
 
@@ -329,15 +319,13 @@ To list your plugin in the Kai marketplace:
 
 ## Development Tips
 
-### Hot Reload
+### Development Workflow
 
-During development, you can use watch mode:
+1. Run `npm run dev` in your plugin directory
+2. Edit your code - changes are automatically rebuilt
+3. Restart Kai to reload the plugin
 
-```bash
-npm run build:watch
-```
-
-Then manually copy to Kai's plugins folder and restart Kai to see changes.
+**Tip**: Keep `npm run dev` running in a terminal while developing. It will watch for changes and rebuild automatically.
 
 ### TypeScript
 

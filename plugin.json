@@ -25,6 +25,10 @@
       "enabled": {
         "type": "boolean",
         "default": true
+      },
+      "showGreeting": {
+        "type": "boolean",
+        "default": true
       }
     }
   }
