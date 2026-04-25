@@ -1,0 +1,31 @@
+{
+  "name": "example",
+  "displayName": "Example Plugin",
+  "version": "1.0.0",
+  "description": "A template plugin demonstrating backend tools, frontend UI, and shared state",
+  "author": "Your Name",
+  "permissions": [
+    "config:read",
+    "config:write",
+    "state:publish",
+    "tools:register",
+    "ui:panel",
+    "ui:navigation",
+    "ui:settings"
+  ],
+  "priority": 100,
+  "required": false,
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "greeting": {
+        "type": "string",
+        "default": "Hello"
+      },
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      }
+    }
+  }
+}
