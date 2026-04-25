@@ -2,7 +2,7 @@ import React from 'react';
 import type { PluginComponentProps } from '../hooks.ts';
 import type { PluginConfig } from '../../shared/types.ts';
 
-export function ExampleSettings({ pluginConfig, setPluginConfig }: PluginComponentProps<Record<string, unknown>, PluginConfig>) {
+export function SettingsView({ pluginConfig, setPluginConfig }: PluginComponentProps<Record<string, unknown>, PluginConfig>) {
   const config: PluginConfig = pluginConfig ?? { greeting: 'Hello', enabled: true, showGreeting: true };
 
   return (

@@ -23,10 +23,9 @@ export async function activate(pluginAPI: PluginAPI): Promise<void> {
   api.tools.register(tools);
 
   // Register UI components
-  api.ui.registerPanel({
+  api.ui.registerPanelView({
     id: PANEL_ID,
     title: PLUGIN_NAME,
-    component: 'ExamplePanel',
     visible: true,
   });
 
@@ -39,10 +38,9 @@ export async function activate(pluginAPI: PluginAPI): Promise<void> {
     target: { type: 'panel', panelId: PANEL_ID },
   });
 
-  api.ui.registerSettingsSection({
+  api.ui.registerSettingsView({
     id: SETTINGS_ID,
     label: PLUGIN_NAME,
-    component: 'ExampleSettings',
     priority: 50,
   });
 

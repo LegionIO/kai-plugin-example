@@ -2,7 +2,7 @@ import React from 'react';
 import type { PluginComponentProps } from '../hooks.ts';
 import type { PluginState, PluginConfig } from '../../shared/types.ts';
 
-export function ExamplePanel({ pluginState, pluginConfig }: PluginComponentProps<PluginState, PluginConfig>) {
+export function PanelView({ pluginState, pluginConfig }: PluginComponentProps<PluginState, PluginConfig>) {
   const state = pluginState ?? { messageCount: 0 };
   const config: PluginConfig = pluginConfig ?? { greeting: 'Hello', enabled: true, showGreeting: true };
 
