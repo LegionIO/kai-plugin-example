@@ -1,7 +1,7 @@
 {
   "name": "example",
   "displayName": "Example Plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A template plugin demonstrating backend tools, frontend UI, and shared state",
   "author": "Your Name",
   "permissions": [
