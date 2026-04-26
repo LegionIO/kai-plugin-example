@@ -49,7 +49,7 @@ npm install
   "displayName": "My Plugin",
   "version": "0.1.0",
   "description": "What your plugin does",
-  "author": "Your Name"
+  "author": "Your Name <https://github.com/yourusername>"
 }
 ```
 
@@ -81,7 +81,7 @@ Outputs `dist/plugin.json`, `dist/backend.js`, and `dist/frontend.js`.
 | `displayName` | string | Human-readable name shown in UI |
 | `version` | string | Semantic version |
 | `description` | string | Short description |
-| `author` | string | Author name |
+| `author` | string | Author name with optional URL in format `Name <https://url>` |
 | `permissions` | array | Declared permissions (see below) |
 | `priority` | number | Load order — lower loads first |
 | `required` | boolean | If true, Kai won't start without it |
@@ -276,7 +276,7 @@ The included GitHub Actions workflow handles versioning and publishing:
   "description": "What your plugin does",
   "repository": "YOUR_USERNAME/my-plugin",
   "version": "1.0.0",
-  "author": "Your Name",
+  "author": "Your Name <https://github.com/yourusername>",
   "tags": ["category"],
   "icon": "plug"
 }
