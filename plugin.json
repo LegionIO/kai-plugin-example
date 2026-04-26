@@ -3,8 +3,7 @@
   "displayName": "Example Plugin",
   "version": "1.0.2",
   "description": "A template plugin demonstrating backend tools, frontend UI, and shared state",
-  "author": "John Hollow",
-  "authorGithub": "iamhollow",
+  "author": "John Hollow <https://github.com/iamhollow>",
   "permissions": [
     "config:read",
     "config:write",
