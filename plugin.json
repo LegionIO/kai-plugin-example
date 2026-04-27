@@ -3,6 +3,7 @@
   "displayName": "Example Plugin",
   "version": "1.0.3",
   "description": "A template plugin demonstrating backend tools, frontend UI, and shared state",
+  "icon": { "lucide": "puzzle" },
   "author": "John Hollow <https://github.com/iamhollow>",
   "permissions": [
     "config:read",

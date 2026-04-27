@@ -31,8 +31,6 @@ export async function activate(pluginAPI: PluginAPI): Promise<void> {
 
   api.ui.registerNavigationItem({
     id: NAV_ID,
-    label: PLUGIN_NAME,
-    icon: { lucide: PLUGIN_ICON },
     visible: true,
     priority: 50,
     target: { type: 'panel', panelId: PANEL_ID },
