@@ -14,8 +14,6 @@
     "ui:navigation",
     "ui:settings"
   ],
-  "priority": 100,
-  "required": false,
   "configSchema": {
     "type": "object",
     "properties": {
