@@ -9,8 +9,8 @@ export function SettingsView({ pluginConfig, setPluginConfig }: PluginComponentP
     <div className="space-y-6">
       <h3 className="text-sm font-semibold">Example Plugin</h3>
 
-      <fieldset className="rounded-lg border p-3 space-y-3">
-        <legend className="text-xs font-semibold px-1">Greeting</legend>
+      <fieldset className="space-y-3 rounded-lg border border-border/50 p-3">
+        <legend className="px-1 text-[10px] font-medium text-muted-foreground">Greeting</legend>
 
         <div className="flex items-start justify-between gap-3 rounded-md border p-3">
           <div>

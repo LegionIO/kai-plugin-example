@@ -2,7 +2,10 @@
  * Props passed by Kai to every plugin component.
  * Destructure pluginState, pluginConfig, setPluginConfig, and onAction in your components.
  */
-export type PluginComponentProps<TState = Record<string, unknown>, TConfig = Record<string, unknown>> = {
+export type PluginComponentProps<
+  TState = Record<string, unknown>,
+  TConfig = Record<string, unknown>,
+> = {
   pluginName: string;
   pluginState?: TState;
   pluginConfig?: TConfig;

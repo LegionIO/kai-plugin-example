@@ -7,10 +7,17 @@ export function PanelView({ pluginState, pluginConfig }: PluginComponentProps<Pl
   const config: PluginConfig = pluginConfig ?? { greeting: 'Hello', enabled: true, showGreeting: true };
 
   return (
-    <div className="space-y-6 p-6 max-w-2xl mx-auto">
+    <div className="space-y-4 p-4 max-w-2xl mx-auto">
 
-      <fieldset className="rounded-lg border p-3 space-y-3">
-        <legend className="text-xs font-semibold px-1">Greeting</legend>
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-sm font-semibold">Example Plugin</h2>
+          <p className="text-[10px] text-muted-foreground">Template &amp; reference implementation</p>
+        </div>
+      </div>
+
+      <fieldset className="space-y-3 rounded-lg border border-border/50 p-3">
+        <legend className="px-1 text-[10px] font-medium text-muted-foreground">Greeting</legend>
 
         {config.showGreeting ? (
           <p className="text-sm text-foreground">{config.greeting}</p>
@@ -26,8 +33,8 @@ export function PanelView({ pluginState, pluginConfig }: PluginComponentProps<Pl
         )}
       </fieldset>
 
-      <fieldset className="rounded-lg border p-3 space-y-2">
-        <legend className="text-xs font-semibold px-1">Resources</legend>
+      <fieldset className="space-y-2 rounded-lg border border-border/50 p-3">
+        <legend className="px-1 text-[10px] font-medium text-muted-foreground">Resources</legend>
         {[
           { label: 'GitHub Repository', description: 'Browse the source code and use this as a template.', href: 'https://github.com/LegionIO/kai-plugin-example' },
           { label: 'README & Documentation', description: 'Full guide covering the plugin API, build system, and how to publish.', href: 'https://github.com/LegionIO/kai-plugin-example#readme' },
