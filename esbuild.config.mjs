@@ -55,6 +55,35 @@ const localNodeModulesPlugin = {
   },
 };
 
+const reactGlobalPlugin = {
+  name: 'react-global',
+  setup(build) {
+    build.onResolve({ filter: /^react(-dom)?(\/.*)?$/ }, args => ({
+      path: args.path,
+      namespace: 'react-global',
+    }));
+    build.onLoad({ filter: /.*/, namespace: 'react-global' }, () => ({
+      contents: `
+        const R = () => globalThis.React;
+        export default new Proxy({}, { get: (_, k) => R()[k] });
+        export const useState = (...a) => R().useState(...a);
+        export const useEffect = (...a) => R().useEffect(...a);
+        export const useRef = (...a) => R().useRef(...a);
+        export const useCallback = (...a) => R().useCallback(...a);
+        export const useMemo = (...a) => R().useMemo(...a);
+        export const useContext = (...a) => R().useContext(...a);
+        export const useReducer = (...a) => R().useReducer(...a);
+        export const createElement = (...a) => R().createElement(...a);
+        export const createContext = (...a) => R().createContext(...a);
+        export const forwardRef = (...a) => R().forwardRef(...a);
+        export const memo = (...a) => R().memo(...a);
+        export const Fragment = Symbol.for('react.fragment');
+      `,
+      loader: 'js',
+    }));
+  },
+};
+
 const backendOptions = {
   entryPoints: ['./src/backend/index.ts'],
   bundle: true,
@@ -78,7 +107,7 @@ const frontendOptions = {
   jsx: 'transform',
   jsxFactory: 'React.createElement',
   jsxFragment: 'React.Fragment',
-  plugins: [localNodeModulesPlugin],
+  plugins: [reactGlobalPlugin, localNodeModulesPlugin],
 };
 
 // Ensure output directory exists
