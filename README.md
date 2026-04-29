@@ -2,6 +2,28 @@
 
 A template and reference implementation for building Kai plugins. Use this as a starting point for your own plugin.
 
+## Before You Build
+
+Kai's plugin ecosystem is designed around one principle: **plugins should give Kai capabilities it doesn't already have.**
+
+The AI agent is already excellent at reasoning about code, generating documentation, writing tests, summarizing content, and performing analysis. A plugin that wraps those abilities behind a simpler heuristic doesn't add value — it adds friction.
+
+**A plugin is the right choice when you need to:**
+
+- Connect to an external API or service (Microsoft Graph, Dynatrace, BlueBubbles, Rally)
+- Integrate with a local daemon or system resource (Legion, hardware interfaces)
+- Provide persistent background processes (cron scheduling, webhook listeners, event streaming)
+- Add authentication flows or provider configuration (OAuth, enterprise gateways)
+- Access capabilities outside the agent's sandbox (encrypted storage, browser windows, HTTP servers)
+
+**A plugin is the wrong choice when you're:**
+
+- Automating something the agent already does well through conversation — use a prompt instruction or CLAUDE.md convention instead
+- Building a thin analyzer that's less capable than the agent's own reasoning
+- Adding passive background suggestions that fire without clear user intent
+
+When in doubt, try solving the problem with a well-crafted prompt or tool instruction first. If that hits a hard wall — the agent literally *cannot* reach the system, API, or resource — that's when a plugin earns its place.
+
 ## Project Structure
 
 ```
