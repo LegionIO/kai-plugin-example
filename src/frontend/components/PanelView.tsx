@@ -7,7 +7,7 @@ export function PanelView({ pluginState, pluginConfig }: PluginComponentProps<Pl
   const config: PluginConfig = pluginConfig ?? { greeting: 'Hello', enabled: true, showGreeting: true };
 
   return (
-    <div className="space-y-4 p-4 max-w-2xl mx-auto">
+    <div className="space-y-4 p-4">
 
       <div className="flex items-center justify-between">
         <div>

@@ -32,14 +32,12 @@ export async function activate(pluginAPI: PluginAPI): Promise<void> {
   api.ui.registerNavigationItem({
     id: NAV_ID,
     visible: true,
-    priority: 50,
     target: { type: 'panel', panelId: PANEL_ID },
   });
 
   api.ui.registerSettingsView({
     id: SETTINGS_ID,
     label: PLUGIN_NAME,
-    priority: 50,
   });
 
   api.log.info('Example plugin activated');
