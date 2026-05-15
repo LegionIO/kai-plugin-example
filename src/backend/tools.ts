@@ -6,7 +6,7 @@ import type { PluginAPI, ToolDefinition } from '../shared/types.js';
 export function buildExampleTools(api: PluginAPI): ToolDefinition[] {
   return [
     {
-      name: 'example_greet',
+      name: 'greet',
       description: 'Send a greeting message. Use this to demonstrate how tools work.',
       parameters: {
         type: 'object',
